@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutWrap>
+    <div fxFlex="" class="player-video-title">{{ data.title }}</div>
+    <div fxFlex="50px" class="close-icon-box">
+      <button mat-icon-button [mat-dialog-close]="data.id"><mat-icon>close</mat-icon></button>
+    </div>
+  </div>
+</h1>
+<div mat-dialog-content>
+  <iframe
+    height="400"
+    [src]="videoUrl"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>

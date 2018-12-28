@@ -1,0 +1,36 @@
+<mat-card>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutWrap>
+    <div fxFlex="120px">
+      <div><img src="{{ channelInfo.thumbnails.sm.url }}" /></div>
+    </div>
+    <div fxFlex="">
+      <div class="mat-body-strong resource-title">{{ channelInfo.title }}</div>
+      <div class="mat-small resource-description">{{ channelInfo.description }}</div>
+      <div class="mat-small resource-published">
+        Published: {{ channelInfo.publishedAt | date }}
+      </div>
+      <div>
+        <button
+          *ngIf="channelInfo.saved === false"
+          class="mat-small action-icon-inactive"
+          matTooltip="Not in Library. Click to add."
+          [matTooltipPosition]="'after'"
+          mat-icon-button
+          (click)="addToLibrary()"
+        >
+          <mat-icon>playlist_add_check</mat-icon>
+        </button>
+        <button
+          *ngIf="channelInfo.saved === true"
+          class="mat-small action-icon"
+          matTooltip="In Library. Click to remove."
+          [matTooltipPosition]="'after'"
+          mat-icon-button
+          (click)="removeFromLibrary()"
+        >
+          <mat-icon>playlist_add_check</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,10 @@
+<nav class="mat-body-2">
+  <ul>
+    <li [class.active-nav-link]="currentUrl === '/'">
+      <a color="warn" routerLink="/"><mat-icon>search</mat-icon> Search </a>
+    </li>
+    <li [class.active-nav-link]="currentUrl === '/library'">
+      <a color="warn" routerLink="/library"> <mat-icon>video_library</mat-icon> Library </a>
+    </li>
+  </ul>
+</nav>

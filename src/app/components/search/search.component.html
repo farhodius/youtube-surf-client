@@ -1,0 +1,84 @@
+<div>
+  <h1 class="mat-display-1 color-title">Search on YouTube</h1>
+  <form [formGroup]="searchForm">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutWrap>
+      <div fxFlex="20%">
+        <mat-form-field>
+          <input matInput placeholder="Search String" formControlName="q" type="text" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%">
+        <mat-form-field>
+          <mat-select placeholder="Resource Type" formControlName="type">
+            <mat-option [value]="'all'">All</mat-option>
+            <mat-option [value]="'video'">Videos</mat-option>
+            <mat-option [value]="'playlist'">Playlists</mat-option>
+            <mat-option [value]="'channel'">Channels</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%">
+        <mat-form-field>
+          <mat-select placeholder="Max Results" formControlName="limit">
+            <mat-option [value]="10">10</mat-option>
+            <mat-option [value]="25">25</mat-option>
+            <mat-option [value]="50">50</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%">
+        <button mat-raised-button color="warn" (click)="search()">
+          <mat-icon>search</mat-icon> Search
+        </button>
+      </div>
+    </div>
+  </form>
+  <h2
+    class="mat-h1 color-title"
+    *ngIf="
+      searchResults.videos.length > 0 ||
+      searchResults.playlists.length > 0 ||
+      searchResults.channels.length > 0
+    "
+  >
+    Search Results
+  </h2>
+  <div *ngIf="searchResults.videos.length > 0">
+    <mat-divider></mat-divider>
+    <h3 class="mat-h2 color-title">
+      <span
+        matBadge="{{ searchResults.videos.length }}"
+        matBadgeOverlap="false"
+        matBadgeColor="warn"
+        >Videos</span
+      >
+    </h3>
+    <div *ngFor="let v of searchResults.videos"><app-video [videoInfo]="v"></app-video></div>
+  </div>
+  <div *ngIf="searchResults.playlists.length > 0">
+    <mat-divider></mat-divider>
+    <h3 class="mat-h2 color-title">
+      <span
+        matBadge="{{ searchResults.playlists.length }}"
+        matBadgeOverlap="false"
+        matBadgeColor="warn"
+        >Playlists</span
+      >
+    </h3>
+    <div *ngFor="let pl of searchResults.playlists"><app-video [videoInfo]="pl"></app-video></div>
+  </div>
+  <div *ngIf="searchResults.channels.length > 0">
+    <mat-divider></mat-divider>
+    <h3 class="mat-h2 color-title">
+      <span
+        matBadge="{{ searchResults.channels.length }}"
+        matBadgeOverlap="false"
+        matBadgeColor="warn"
+        >Channels</span
+      >
+    </h3>
+    <div *ngFor="let c of searchResults.channels">
+      <app-channel [channelInfo]="c"></app-channel>
+    </div>
+  </div>
+</div>

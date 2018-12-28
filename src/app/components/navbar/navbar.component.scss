@@ -1,0 +1,29 @@
+nav {
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  li {
+    text-decoration: none;
+    line-height: 50px;
+  }
+  li a {
+    display: inline-block;
+    line-height: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    vertical-align: middle;
+    color: #ff3300;
+  }
+  li a:hover {
+    background: #ffad99;
+  }
+
+  li.active-nav-link {
+    background: #ffd6cc;
+  }
+  mat-icon {
+    vertical-align: middle;
+  }
+}

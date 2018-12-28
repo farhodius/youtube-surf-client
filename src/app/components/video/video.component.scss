@@ -1,0 +1,20 @@
+mat-card {
+  margin: 8px 0;
+}
+.resource-title,
+.resource-published,
+.channel-title {
+  color: #ff3300;
+}
+.resource-description {
+  color: #ff8566;
+}
+.resource-image {
+  cursor: pointer;
+}
+.action-icon {
+  color: #cc2900;
+}
+.action-icon-inactive {
+  color: #cccccc;
+}
