@@ -12,6 +12,7 @@ import {VideoInterface} from 'src/app/interfaces/resource/VideoInterface';
 })
 export class VideoComponent implements OnInit {
   videoInfo: VideoInterface;
+  fullDesc = false;
 
   constructor(public dialog: MatDialog, private data: DataService) {}
 

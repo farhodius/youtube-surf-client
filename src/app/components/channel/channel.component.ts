@@ -10,6 +10,8 @@ import {ChannelInterface} from 'src/app/interfaces/resource/ChannelInterface';
 })
 export class ChannelComponent implements OnInit {
   channelInfo: ChannelInterface;
+  fullDesc = false;
+
   constructor(private data: DataService) {}
 
   addToLibrary() {

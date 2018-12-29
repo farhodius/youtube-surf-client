@@ -5,7 +5,23 @@
     </div>
     <div fxFlex="">
       <div class="mat-body-strong resource-title">{{ channelInfo.title }}</div>
-      <div class="mat-small resource-description">{{ channelInfo.description }}</div>
+      <div class="mat-small resource-description">
+        <div *ngIf="fullDesc === false">
+          {{ channelInfo.description | slice: 0:256 }}
+          <button
+            mat-button
+            color="accent"
+            (click)="fullDesc = !fullDesc"
+            *ngIf="channelInfo.description.length > 256"
+          >
+            ...more
+          </button>
+        </div>
+        <div *ngIf="fullDesc === true">
+          {{ channelInfo.description }}
+          <button mat-button color="accent" (click)="fullDesc = !fullDesc">less...</button>
+        </div>
+      </div>
       <div class="mat-small resource-published">
         Published: {{ channelInfo.publishedAt | date }}
       </div>

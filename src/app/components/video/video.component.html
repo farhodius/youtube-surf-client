@@ -8,7 +8,23 @@
     </div>
     <div fxFlex="">
       <div class="mat-body-strong resource-title">{{ videoInfo.title }}</div>
-      <div class="mat-small resource-description">{{ videoInfo.description }}</div>
+      <div class="mat-small resource-description">
+        <div *ngIf="fullDesc === false">
+          {{ videoInfo.description | slice: 0:256 }}
+          <button
+            mat-button
+            color="accent"
+            (click)="fullDesc = !fullDesc"
+            *ngIf="videoInfo.description.length > 256"
+          >
+            ...more
+          </button>
+        </div>
+        <div *ngIf="fullDesc === true">
+          {{ videoInfo.description }}
+          <button mat-button color="accent" (click)="fullDesc = !fullDesc">less...</button>
+        </div>
+      </div>
       <div class="mat-small resource-published">Published: {{ videoInfo.publishedAt | date }}</div>
       <div>
         <button
